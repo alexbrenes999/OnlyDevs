@@ -27,7 +27,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    orders: [Order]
+    activityLevel: INT
   }
 
   type Checkout {
@@ -55,6 +55,19 @@ const typeDefs = gql`
     updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
   }
-`;
+  
+  type Request {
+    _id: ID
+    title: String
+    description: String
+    qualifications: String
+  }
 
+  type Listing {
+    _id: ID
+    body: String
+  }
+
+`;
+// Gus's typeDefs are under the type Mutation
 module.exports = typeDefs;
