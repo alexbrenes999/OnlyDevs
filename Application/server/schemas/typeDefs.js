@@ -69,6 +69,26 @@ const typeDefs = gql`
     body: String
   }
 
+
+  type BlogPost {
+    _id: ID
+    title: String
+    author: String
+    body: String
+    likes: INT
+    comment: String
+  }
+
+  type Comment {
+    _id: ID
+    body: String
+    author: String
+  }
+
+  type Like {
+    _id: ID
+    upVoteDownVote: INT
+  }
 `;
 // Gus's typeDefs are under the type Mutation
 module.exports = typeDefs;
