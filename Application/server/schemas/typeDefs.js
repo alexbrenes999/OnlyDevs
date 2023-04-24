@@ -28,6 +28,7 @@ const typeDefs = gql`
     lastName: String
     email: String
     activityLevel: INT
+    contactInfo: String
   }
 
   type Checkout {
@@ -55,7 +56,7 @@ const typeDefs = gql`
     updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
   }
-  
+
   type Request {
     _id: ID
     title: String
