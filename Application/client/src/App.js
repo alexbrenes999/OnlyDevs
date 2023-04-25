@@ -46,6 +46,7 @@ import Navigation from 'pages/Navbar/Navbar';
 import Profile from 'pages/Profile/Profile';
 import CreateJob from 'pages/Works/CreateJob';
 import JobFeed from 'pages/Works/JobFeed';
+import Signup from "pages/Login/Signup";
 
 function App() {
   return (
@@ -53,9 +54,11 @@ function App() {
       <div>
       <Routes>
         <Route path="/" element={<LoginPage/>}/>
+        <Route path="/Signup" element={<Signup/>}/>
         <Route path="/Profile" element={<Profile/>}/>
         <Route path="/CreateJob" element={<CreateJob/>}/>
         <Route path="/JobFeed" element={<JobFeed/>}/>
+        
         {/*<Route path="/Contact" element={<Contact/>}/> */}
       </Routes>
       </div>
