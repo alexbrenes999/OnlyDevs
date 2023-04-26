@@ -26,8 +26,10 @@ const typeDefs = gql`
     _id: ID
     firstName: String
     lastName: String
+    password: String
     email: String
     activityLevel: INT
+    contactInfo: String
   }
 
   type Checkout {
@@ -49,13 +51,13 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!, activityLevel: INT!, contactInfo: String!): Auth
+    addListing(listing: [ID]!): Listing
+    updateUser(firstName: String, lastName: String, email: String, password: String, activityLevel: INT!, contactInfo: String!): User
+    updateListing(_id: ID!, body: String!): Product
     login(email: String!, password: String!): Auth
   }
-  
+
   type Request {
     _id: ID
     title: String
@@ -68,6 +70,26 @@ const typeDefs = gql`
     body: String
   }
 
+
+  type BlogPost {
+    _id: ID
+    title: String
+    author: String
+    body: String
+    likes: INT
+    comment: String
+  }
+
+  type Comment {
+    _id: ID
+    body: String
+    author: String
+  }
+
+  type Like {
+    _id: ID
+    upVoteDownVote: INT
+  }
 `;
 // Gus's typeDefs are under the type Mutation
 module.exports = typeDefs;
