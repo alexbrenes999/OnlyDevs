@@ -4,7 +4,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
-  { name: 'Profile', href: '/myprofile', current: false },
+  { name: 'Profile', href: '/myProfile', current: false },
   { name: 'Create Job', href: '/CreateJob', current: false },
   { name: 'Job Feed', href: '/JobFeed', current: false },
 ]
@@ -15,11 +15,11 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <Disclosure as="nav" className="bg-[#2070B7]">
+    <Disclosure as="nav" className="bg-[#0070bb]">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 h-24">
+            <div className="relative flex h-full items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -34,19 +34,19 @@ export default function Example() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="block h-8 w-auto lg:hidden"
-                    src="./assets/OnlyDevs-logo"
+                    className="block h-16 w-auto lg:hidden"
+                    src="./assets/On"
                     
-                    alt="OnlyDevs"
+                    alt="OnlyDevs Logo"
                   />
                   <img
-                    className="hidden h-12 w-auto lg:block"
-                    src="./assets/OnlyDevs-logo"
-                    alt="OnlyDevs"
+                    className="hidden h-16 w-auto lg:block"
+                    src="./assets/On"
+                    alt="OnlyDevs Logo"
                   />
                 </div>
-                <div className="hidden items-center sm:ml-6 sm:block">
-                  <div className="flex  space-x-4">
+                <div className="hidden items-center justify-between my-auto sm:ml-6 sm:block">
+                  <div className="flex   space-x-4">
                     {navigation.map((item) => (
                       <a
                         key={item.name}
@@ -70,7 +70,7 @@ export default function Example() {
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-8 w-8 rounded-full"
+                        className="h-12 w-12 rounded-full"
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt="Photo of john doe"
                       />
@@ -89,7 +89,7 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/myprofile"
+                            href="/myProfile"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
