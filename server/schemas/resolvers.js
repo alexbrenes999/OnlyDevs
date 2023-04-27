@@ -33,7 +33,7 @@ const resolvers = {
               throw new AuthenticationError('Incorrect credentials');
             }
       
-            const token = signToken(user);
+            const token = authStuff.signToken(user);
       
             return { token, user };
         }
