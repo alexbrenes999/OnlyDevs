@@ -78,7 +78,6 @@ import { setContext } from '@apollo/client/link/context';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from "./pages/Login/Login"
-import Navigation from './pages/Navbar/Navbar';
 import Profile from './pages/Profile/Profile';
 import CreateJob from './pages/Works/CreateJob';
 import JobFeed from './pages/Works/JobFeed';
@@ -115,7 +114,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <div className="container">
+          <div className="">
             <Routes>
             <Route path="/" element={<LoginPage/>}/>
             <Route path="/Signup" element={<Signup/>}/>

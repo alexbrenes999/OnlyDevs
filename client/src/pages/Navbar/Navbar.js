@@ -4,7 +4,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
-  { name: 'Profile', href: '/Profile', current: false },
+  { name: 'Profile', href: '/myprofile', current: false },
   { name: 'Create Job', href: '/CreateJob', current: false },
   { name: 'Job Feed', href: '/JobFeed', current: false },
 ]
@@ -89,7 +89,7 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/profile"
+                            href="/myprofile"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
