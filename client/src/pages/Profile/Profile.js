@@ -12,7 +12,7 @@ export default function Profile () {
             <Navigation/>
             {/* <!-- component -->
             <!-- This is an example component --> */}
-            <div className='flex items-center justify-center min-h-screen from-gray-700 via-gray-800 to-gray-900 bg-gradient-to-br'>
+            <div className='flex items-center justify-center min-h-screen bg-slate-700'>
             <div className="relative w-full group max-w-md min-w-0 mx-auto mt-16 mb-6 break-words bg-white border shadow-2xl dark:bg-gray-800 dark:border-gray-700 md:max-w-xl rounded-xl">
                 <div className="pb-6">
                     <div className="flex flex-wrap justify-center">
