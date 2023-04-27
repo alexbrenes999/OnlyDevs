@@ -5,7 +5,7 @@ export default function CreateJob() {
         <div >
             <Navigation />
             {/* <!-- component --> */}
-            <div className="flex items-center justify-center p-12 h-full  ">
+            <div className="flex  justify-center p-12 h-screen bg-slate-100">
                 {/* <!-- Author: FormBold Team -->
             <!-- Learn More: https://formbold.com --> */} 
                 <div className="mx-auto w-full max-w-[550px]">
