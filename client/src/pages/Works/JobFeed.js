@@ -1,4 +1,4 @@
-import Navigation from 'pages/Navbar/Navbar';
+import Navigation from '../Navbar/Navbar';
 
 export default function JobFeed () {
     return (

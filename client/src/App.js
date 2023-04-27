@@ -41,12 +41,12 @@
 
 // import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoginPage from "pages/Login/Login";
-import Navigation from 'pages/Navbar/Navbar';
-import Profile from 'pages/Profile/Profile';
-import CreateJob from 'pages/Works/CreateJob';
-import JobFeed from 'pages/Works/JobFeed';
-import Signup from "pages/Login/Signup";
+import LoginPage from "./pages/Login/Login";
+import Navigation from './pages/Navbar/Navbar';
+import Profile from './pages/Profile/Profile';
+import CreateJob from './pages/Works/CreateJob';
+import JobFeed from './pages/Works/JobFeed';
+import Signup from "./pages/Login/Signup";
 
 function App() {
   return (
