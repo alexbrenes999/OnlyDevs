@@ -7,6 +7,15 @@ type User {
     lastName: String!
     username: String!
     password: String!
+    profileInfo: [ProfileInfo]
+}
+
+type ProfileInfo {
+    location: String
+    jobTitle: String
+    skillz: String
+    contact: String
+
 }
 
 type Query {
