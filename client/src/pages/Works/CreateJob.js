@@ -2,12 +2,12 @@ import Navigation from '../Navbar/Navbar';
 
 export default function CreateJob() {
     return (
-        <div>
+        <div >
             <Navigation />
             {/* <!-- component --> */}
-            <div className="flex items-center justify-center p-12">
+            <div className="flex items-center justify-center p-12 h-full  ">
                 {/* <!-- Author: FormBold Team -->
-            <!-- Learn More: https://formbold.com --> */}
+            <!-- Learn More: https://formbold.com --> */} 
                 <div className="mx-auto w-full max-w-[550px]">
                     <form action="https://formbold.com/s/FORM_ID" method="POST">
                         <div className="mb-5">
