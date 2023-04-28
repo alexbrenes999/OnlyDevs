@@ -20,9 +20,12 @@ type ProfileInfo {
 
 type JobPosting {
     title: String!
-    author: [User]
-    body: String!
     requirements: String!
+    projectDate: String!
+    body: String!
+    author: [User]
+    contactInfo: String!
+    
 }
 
 type BlogPost {
