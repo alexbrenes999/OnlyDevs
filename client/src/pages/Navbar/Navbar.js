@@ -3,7 +3,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Home', href: '/', current: true },
+  { name: 'Home', href: '/', current: false },
   { name: 'Profile', href: '/myProfile', current: false },
   { name: 'Create Job', href: '/CreateJob', current: false },
   { name: 'Job Feed', href: '/JobFeed', current: false },
@@ -71,7 +71,7 @@ export default function Example() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-12 w-12 rounded-full nav-profile"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src="./assets/default-user.png"
                         alt="User profile picture"
                       />
                     </Menu.Button>
