@@ -14,6 +14,7 @@ type ProfileInfo {
     location: String
     jobTitle: String
     skillz: String
+    languages: String
     contact: String
 }
 
@@ -21,6 +22,7 @@ type JobPosting {
     title: String!
     author: [User]
     body: String!
+    requirements: String!
 }
 
 type BlogPost {
@@ -37,7 +39,7 @@ type Comment {
 }
 
 type Likes {
-    vote: INT!
+    vote: Int!
 }
 
 type Query {
