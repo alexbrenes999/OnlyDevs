@@ -15,7 +15,29 @@ type ProfileInfo {
     jobTitle: String
     skillz: String
     contact: String
+}
 
+type JobPosting {
+    title: String!
+    author: [User]
+    body: String!
+}
+
+type BlogPost {
+    title: String!
+    author: [User]
+    body: String!
+    comments: [Comment]
+    likes: [Likes]
+}
+
+type Comment {
+    body: String!
+    author: [User]
+}
+
+type Likes {
+    vote: INT!
 }
 
 type Query {
