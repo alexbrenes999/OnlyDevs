@@ -15,10 +15,10 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <Disclosure as="nav" className="bg-[#0070bb]">
+    <Disclosure as="nav" className="bg-[#0070bb] shadow-6xl border-t border-x border-double border-4 border-sky-500">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 h-24">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 h-24 ">
             <div className="relative flex h-full items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -31,12 +31,11 @@ export default function Example() {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-center">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="block h-16 w-auto lg:hidden"
+                    className="block h-12 w-auto lg:hidden"
                     src="./assets/On"
-                    
                     alt="OnlyDevs Logo"
                   />
                   <img
@@ -45,14 +44,14 @@ export default function Example() {
                     alt="OnlyDevs Logo"
                   />
                 </div>
-                <div className="hidden items-center justify-between my-auto sm:ml-6 sm:block">
-                  <div className="flex   space-x-4">
+                <div className="hidden first-letter:items-center justify-center my-auto sm:ml-6 sm:block">
+                  <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          item.current ? 'bg-gray-900 text-white' : 'text-xl/7 text-white hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
@@ -93,6 +92,16 @@ export default function Example() {
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="/EditProfile"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          >
+                            Edit Profile
                           </a>
                         )}
                       </Menu.Item>
