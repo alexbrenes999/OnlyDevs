@@ -46,10 +46,10 @@ function App() {
               <Route path="/" element={<LoginPage/>}/>
               <Route path="/Signup" element={<Signup/>}/>
               <Route path="/MyProfile" element={<Profile/>}/>
-              {/* <Route path="/EditProfile" element={<EditProfile/>}/> */}
+              <Route path="/EditProfile" element={<EditProfile/>}/>
               <Route path="/CreateJob" element={<CreateJob/>}/>
               <Route path="/JobFeed" element={<JobFeed/>}/>
-              <Route path="/profiles/:username" element={<Profile />}/>
+              <Route path="/MyProfile/:id" element={<Profile />}/>
               <Route path="/Job/:JobId" // element={<SingleJob />}
               />
             </Routes>
