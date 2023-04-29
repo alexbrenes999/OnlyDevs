@@ -5,11 +5,11 @@ import { REGISTER_USER } from '../../utils/mutations';
 
 function Signup(props) {
     const [formState, setFormState] = useState({ username: '', password: '' });
-    const [helloThere] = useMutation(REGISTER_USER);
+    const [registerUser] = useMutation(REGISTER_USER);
   
     const handleFormSubmit = async (event) => {
       event.preventDefault();
-      const mutationResponse = await helloThere({
+      const mutationResponse = await registerUser({
         variables: {
           username: formState.username,
           password: formState.password,
@@ -17,7 +17,7 @@ function Signup(props) {
           lastName: formState.lastName,
         },
       });
-      const token = mutationResponse.data.addUser.token;
+      const token = mutationResponse.data.registerUser.token;
       Auth.login(token);
     };
   
