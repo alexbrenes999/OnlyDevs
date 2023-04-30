@@ -20,12 +20,12 @@ export default function Profile() {
                         <div className="flex flex-wrap justify-center">
                             <div className="flex justify-center ">
                                 <div className="relative">
-                                    <img alt='placeholder' src="./assets/default-user.png" className="dark:shadow-xl border-white dark:border-gray-800 rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]" />
+                                    <img alt='placeholder' src="../assets/default-user.png" className="dark:shadow-xl border-white dark:border-gray-800 rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]" />
                                 </div>
                             </div>
                         </div>
 
-                        <div className="mt-2 mt-20 text-center ">
+                        <div className=" mt-20 text-center ">
                             <h3 className="mb-1 text-2xl font-bold leading-normal text-gray-700 dark:text-gray-300 fullName">My Name</h3>
                             <div className="flex flex-row justify-center w-full mx-auto space-x-2 text-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">

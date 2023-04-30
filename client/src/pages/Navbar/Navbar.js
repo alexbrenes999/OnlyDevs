@@ -4,7 +4,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
   { name: 'Home', href: '/', current: false },
-  { name: 'Profile', href: '/myProfile', current: false },
+  // { name: 'Profile', href: '/myProfile/:username', current: false },
   { name: 'Create Job', href: '/CreateJob', current: false },
   { name: 'Job Feed', href: '/JobFeed', current: false },
 ]
@@ -35,12 +35,12 @@ export default function Example() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="block h-12 w-auto lg:hidden"
-                    src="./assets/On"
+                    src="../assets/On"
                     alt="OnlyDevs Logo"
                   />
                   <img
                     className="hidden h-16 w-auto lg:block"
-                    src="./assets/On"
+                    src="../assets/On"
                     alt="OnlyDevs Logo"
                   />
                 </div>
@@ -70,7 +70,7 @@ export default function Example() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-12 w-12 rounded-full nav-profile"
-                        src="./assets/default-user.png"
+                        src="../assets/default-user.png"
                         alt="User profile picture"
                       />
                     </Menu.Button>
@@ -88,7 +88,7 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/myProfile"
+                            href="/myProfile/:username"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
