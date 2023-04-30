@@ -3,7 +3,7 @@ import Navigation from '../Navbar/Navbar';
 //INFO?
 export default function CreateJob() {
     return (
-        <div >
+        <div className='bg-slate-200'>
             <Navigation />
             {/* <!-- component --> */}
             <div className="flex  justify-center p-12 bg-slate-100">

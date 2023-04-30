@@ -1,6 +1,6 @@
 export default function JobPosting () {
     return (
-        <div>
+        <div className ="bg-slate-200">
             <div className="flex flex-col items-center justify-center p-12 bg-slate-200">
                 <div className="max-w-xl py-4 px-8 bg-white shadow-lg rounded-lg my-20">
                     <div className="flex justify-center md:justify-end -mt-16">

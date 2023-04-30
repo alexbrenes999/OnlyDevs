@@ -9,6 +9,7 @@ import EditProfile from './pages/Profile/EditProfile';
 import CreateJob from './pages/Works/CreateJob';
 import JobFeed from './pages/Works/JobFeed';
 import Signup from "./pages/Login/Signup";
+import NoMatch from "./pages/NoMatch/NoMatch";
   
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -50,8 +51,9 @@ function App() {
               <Route path="/CreateJob" element={<CreateJob/>}/>
               <Route path="/JobFeed" element={<JobFeed/>}/>
               <Route path="/MyProfile/:username" element={<Profile />}/>
-              <Route path="/Job/:JobId" // element={<SingleJob />}
+              <Route path="/Job/:JobId" // element={<SingleJob />} 
               />
+              <Route path="*" element={<NoMatch />} />
             </Routes>
           </div>
         
