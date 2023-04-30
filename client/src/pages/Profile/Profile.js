@@ -10,7 +10,7 @@ import {
 
 export default function Profile() {
     return (
-        <div>
+        <div className='bg-slate-200'>
             <Navigation />
             {/* <!-- component -->
             <!-- This is an example component --> */}
