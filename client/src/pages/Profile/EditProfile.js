@@ -1,6 +1,8 @@
 import Navigation from '../Navbar/Navbar';
 
 export default function CreateJob() {
+    
+
     return (
         <div className='bg-slate-200'>
             <Navigation />

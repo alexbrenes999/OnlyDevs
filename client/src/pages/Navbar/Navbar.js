@@ -14,6 +14,7 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+  
   return (
     <Disclosure as="nav" className="bg-[#0070bb] shadow-6xl border-t border-x border-double border-4 border-sky-500">
       {({ open }) => (
@@ -88,7 +89,7 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/myProfile/:username"
+                            href="/myProfile/`${:username}`"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile

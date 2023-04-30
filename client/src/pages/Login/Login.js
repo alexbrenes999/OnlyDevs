@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import Auth from '../../context/authContext';
 import { LOGIN_USER } from '../../utils/mutations';
-import { useNavigate } from "react-router-dom";
 
 function Login(props) {
 
@@ -61,7 +60,7 @@ function Login(props) {
 
                         {error ? (
                             <div>
-                                <p className="error-text">The provided credentials are incorrect</p>
+                                <p className="my-2 p-2 rounded-[2px] justify-center text-xs font-semibold text-center error-text bg-red-300 text-red-700">Uh-oh! The provided credentials are incorrect! Please try again.</p>
                             </div>
                         ) : null}
                         <div className="mt-1 flex justify-end text-xs text-[#083BA2] hover:text-[#6c97ed]">
