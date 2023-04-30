@@ -8,10 +8,11 @@ function Login(props) {
 
     const [formState, setFormState] = useState({ username: '', password: '' });
     const [loginUser, { error }] = useMutation(LOGIN_USER);
-    const navigate = useNavigate();
+    const username = formState.username
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+        
         try {
             const mutationResponse = await loginUser({
                 variables: {
@@ -21,7 +22,8 @@ function Login(props) {
             });
             const token = mutationResponse.data.loginUser.token;
             Auth.login(token);
-            navigate("/MyProfile/:id", true)
+            
+            window.location.assign(`/MyProfile/${username}`)
         } catch (e) {
             console.log(e);
         }
