@@ -45,7 +45,7 @@ export default function EditProfile() {
                     <div className='border-b-4 border-[#9196ac]  my-4'>
                         <p className='text-center text-2xl font-semibold pb-3'>Edit your profile!</p>
                     </div>
-                    <form form onSubmit={handleFormSubmit}>
+                    <form onSubmit={handleFormSubmit}>
                         <div className="mb-5">
                             <label
                                 for="location"
