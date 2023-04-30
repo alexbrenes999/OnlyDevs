@@ -10,7 +10,7 @@ const NoMatch = () => {
         <h6>Happy adventuring! -OnlyDevs</h6>
         <h1>
           <div className="pt-5">
-            <button className="w-2/12 px-3 justify-center mt-5 shadow-xl border bg-gradient-to-r from-gray-800 bg-gray-500 text-white rounded-[4px] hover:bg-slate-400 scale-105 duration-300"
+            <button className="w-2/12 px-3 py-2 justify-center mt-5 shadow-xl border bg-gradient-to-r from-gray-800 bg-gray-500 text-white rounded-[4px] hover:bg-slate-400 scale-105 duration-300"
             type="submit" href="/">Back to home base!</button>
           </div>
         
