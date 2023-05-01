@@ -7,22 +7,33 @@ import { EDIT_PROFILE } from '../../utils/mutations';
 export default function EditProfile() {
     const [formState, setFormState] = useState({ location: '', jobTitle: '', skills:'', contact:'' });
     const [EditProfile] = useMutation(EDIT_PROFILE);
+    const username = formState.username
   
     const handleFormSubmit = async (event) => {
       event.preventDefault();
-      const mutationResponse = await EditProfile({
-        variables: {
-          location: formState.location,
-          jobTitle: formState.jobTitle,
-          skills: formState.skills,
-          contact: formState.contact,
-        },
-        
-      });
-        console.log(mutationResponse);
 
-      const token = mutationResponse.data.EditProfile.token;
-      Auth.login(token);
+      console.log(formState)
+      try {
+        const mutationResponse = await EditProfile({
+            variables: {
+                username: username,
+              location: formState.location,
+              jobTitle: formState.jobTitle,
+              skills: formState.skills,
+              contact: formState.contact,
+            },
+            
+          });
+          console.log(mutationResponse);
+
+      }  catch (err) {
+        console.log(err)
+      }
+      
+        
+
+    //   const token = mutationResponse.data.EditProfile.token;
+    //   Auth.login(token);
     };
   
     const handleChange = (event) => {
@@ -58,6 +69,7 @@ export default function EditProfile() {
                                 name="location"
                                 id="location"
                                 placeholder="Florida, USA"
+                                value={formState.location}
                                 className="w-full rounded-md border shadow-md border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                                 onChange={handleChange}
                             />
@@ -91,6 +103,7 @@ export default function EditProfile() {
                                 type="text"
                                 name="skills"
                                 id="skills"
+                                value={formState.skills}
                                 placeholder="Responsive Design, Mobile Application Development, Backend Guru"
                                 className="w-full resize-none rounded-md border shadow-md border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                                 onChange={handleChange}
@@ -108,6 +121,7 @@ export default function EditProfile() {
                                 name="contact"
                                 id="contact"
                                 placeholder="Hello@OnlyDevs.com"
+                                value={formState.contact}
                                 className="w-full rounded-md border shadow-md border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                                 onChange={handleChange}
                             />
