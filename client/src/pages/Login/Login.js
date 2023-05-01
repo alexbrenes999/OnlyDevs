@@ -11,7 +11,6 @@ function Login(props) {
     const username = formState.username
 
     const handleFormSubmit = async (event) => {
-        
         event.preventDefault();
      
         console.log(formState)
