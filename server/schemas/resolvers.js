@@ -1,6 +1,8 @@
 import { AuthenticationError } from 'apollo-server-express';
 import User from '../models/User.js';
 import HelpPost from '../models/HelpPost.js';
+import Profile from '../models/Profile.js';
+
 import { authStuff } from '../utils/auth.js';
 
 const resolvers = {
@@ -46,12 +48,16 @@ const resolvers = {
         createHelpPost: async (parent, args) => {
           return await HelpPost.create(args);
         },
-        editProfile: async (parent, args) => {
+        editProfile: async (parent, { profiles }, context) => {
+            console.log(context);
             if (context.user) {
-              const user = await User.findById(context.user._id);
-              return user;
+              const profile = new Profile({ profiles });
+              await User.findByIdAndUpdate(context.user._id, { $push: { profile: profile } });
+              return profile;
             }
+            throw new AuthenticationError('Not logged in');
         }
+       
     }
 };
 

@@ -29,14 +29,15 @@ mutation loginUser($username: String!, $password: String!) {
 export const EDIT_PROFILE = gql`
 mutation editProfile($username: String!, $location: String!, $jobTitle: String!, $skills: String!, $contact: String!) {
   editProfile(username: $username, location: $location, jobTitle: $jobTitle, skills: $skills, contact: $contact) {
-    token
     user {
       _id
       username
-      location
-      jobTitle
-      skills
-      contact
+      profile{
+        location
+        jobTitle
+        skills
+        contact
+      }
     }
   }
 }

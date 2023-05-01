@@ -5,10 +5,7 @@ import Auth from '../../context/authContext';
 import { EDIT_PROFILE } from '../../utils/mutations';
 
 export default function EditProfile() {
-    //I DONT KNOW IF THIS IS THE RIGHT THING FOR FORMSTATE// SETFORMSTATE 
-    //COPIED THIS DIRECTLY FROM THE SIGNUP FORM
-    //ALEX DO YOUR THING HONEY -K
-    const [formState, setFormState] = useState({ username: '', password: '' });
+    const [formState, setFormState] = useState({ location: '', jobTitle: '', skills:'', contact:'' });
     const [EditProfile] = useMutation(EDIT_PROFILE);
   
     const handleFormSubmit = async (event) => {
@@ -20,7 +17,10 @@ export default function EditProfile() {
           skills: formState.skills,
           contact: formState.contact,
         },
+        
       });
+        console.log(mutationResponse);
+
       const token = mutationResponse.data.EditProfile.token;
       Auth.login(token);
     };
