@@ -7,10 +7,8 @@ import { HELP_POST } from '../../utils/mutations';
 //NOTE FROM KELSEI, SHOULD THIS ON CLICK EVENT REDIRECT TO ANOTHER PAGE? OR LET USER KNOW, HEY WE GOT YOUR
 //INFO?
 export default function CreateJob() {
-    //I DONT KNOW IF THIS IS THE RIGHT THING FOR FORMSTATE// SETFORMSTATE 
-    //COPIED THIS DIRECTLY FROM THE SIGNUP FORM
-    //ALEX DO YOUR THING HONEY -K
-    const [formState, setFormState] = useState({ username: '', password: '' });
+    
+    const [formState, setFormState] = useState({ title: '', languages: '', timeline: '', description:'', contact: '' });
     const [helpPost] = useMutation(HELP_POST);
   
     const handleFormSubmit = async (event) => {

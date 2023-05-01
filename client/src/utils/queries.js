@@ -7,12 +7,10 @@ export const QUERY_USER = gql`
     firstName
     lastName
     username
-    profile{
-      location
-      jobTitle
-      skills
-      contact
-    }
+    location
+    jobTitle
+    skills
+    contact
   }
 }
 
