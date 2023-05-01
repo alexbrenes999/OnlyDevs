@@ -1,22 +1,33 @@
 import Navigation from '../Navbar/Navbar';
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { useMutation } from '@apollo/client';
 import Auth from '../../context/authContext';
 import { EDIT_PROFILE } from '../../utils/mutations';
 
+
 export default function EditProfile() {
     const [formState, setFormState] = useState({ location: '', jobTitle: '', skills:'', contact:'' });
     const [EditProfile] = useMutation(EDIT_PROFILE);
-    const username = formState.username
-  
+    
+    useEffect(() => {
+        let useri = Auth.getProfile()
+        console.log(useri)
+        if (useri){
+          setUsername(useri.data.username);
+        }
+      });
+    const [usernamed, setUsername] = useState('');
+    
+    
     const handleFormSubmit = async (event) => {
       event.preventDefault();
 
-      console.log(formState)
-      try {
+      
+      try {        
+          console.log(usernamed)
         const mutationResponse = await EditProfile({
             variables: {
-                username: username,
+              username: usernamed,
               location: formState.location,
               jobTitle: formState.jobTitle,
               skills: formState.skills,
@@ -29,11 +40,7 @@ export default function EditProfile() {
       }  catch (err) {
         console.log(err)
       }
-      
-        
-
-    //   const token = mutationResponse.data.EditProfile.token;
-    //   Auth.login(token);
+    
     };
   
     const handleChange = (event) => {

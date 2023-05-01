@@ -58,6 +58,7 @@ export default function CreateJob() {
                                 name="title"
                                 id="title"
                                 placeholder="Full Stack Developer Needed!"
+                                value={formState.title}
                                 className="w-full rounded-md border shadow-md border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#2093e5] focus:shadow-md"
                                 onChange={handleChange}
                             />
