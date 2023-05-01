@@ -24,15 +24,15 @@ mutation loginUser($username: String!, $password: String!) {
 `;
 
 export const EDIT_PROFILE = gql`
-mutation editUser($location: String!, $jobTitle: String!, $skills: String!, $contact: String!) {
-  editUser(location: $location, jobTitle: $jobTitle, skills: $skills, contact: $contact) {
-    user {
-      _id
-      location
-      jobTitle
-      skills
-      contact
-    }
+mutation Mutation($username: String!, $location: String!, $jobTitle: String!, $skills: String!, $contact: String!) {
+  editUser(username: $username, location: $location, jobTitle: $jobTitle, skills: $skills, contact: $contact) {
+    contact
+    firstName
+    jobTitle
+    lastName
+    location
+    skills
+    username
   }
 }
 `;

@@ -46,13 +46,20 @@ const resolvers = {
         createHelpPost: async (parent, args) => {
           return await HelpPost.create(args);
         },
-        editUser: async (parent, { username, location, jobTitle, skills, contact } ) => {
-           console.log(username)
-              const profile = await User.findOneAndUpdate({username: username}, 
-                { $push: { location: location, jobTitle: jobTitle, skills: skills, contact: contact } });
-              return profile;
-            
+        editUser: async (_, { username, location, jobTitle, skills, contact }) => {
+          try {
+            const user = await User.findOneAndUpdate(
+              { username },
+              { $set: { location, jobTitle, skills, contact } },
+              { new: true } // returns the updated document
+            );
+            return user;
+          } catch (err) {
+            console.error(err);
+            throw new Error('Failed to update user');
+          }
         }
+      
        
     }
 };
