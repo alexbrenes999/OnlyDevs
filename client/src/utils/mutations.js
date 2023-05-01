@@ -26,3 +26,35 @@ mutation loginUser($username: String!, $password: String!) {
 }
 `;
 
+export const EDIT_PROFILE = gql`
+mutation editProfile($username: String!, $location: String!, $jobTitle: String!, $skills: String!, $contact: String!) {
+  editProfile(username: $username, location: $location, jobTitle: $jobTitle, skills: $skills, contact: $contact) {
+    token
+    user {
+      _id
+      username
+      location
+      jobTitle
+      skills
+      contact
+    }
+  }
+}
+`;
+
+export const HELP_POST = gql`
+mutation createHelpPost($title: String!, $languages: String!, $dates: String!, $description: String!, $contact: String!) {
+  createHelpPost(title: $title, languages: $languages, dates: $dates, description: $description, contact: $contact) {
+    token
+    HelpPost {
+      _id
+      title
+      languages
+      timeline
+      description
+      contact
+    }
+  }
+}
+`;
+

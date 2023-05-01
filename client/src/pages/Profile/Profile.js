@@ -1,11 +1,4 @@
 import Navigation from '../Navbar/Navbar';
-import {
-    AiFillGithub,
-    AiOutlineTwitter,
-    AiFillLinkedin,
-    AiOutlineInstagram,
-    AiFillYoutube
-} from 'react-icons/ai';
 
 
 export default function Profile() {
