@@ -35,8 +35,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-//COPIED THIS DIRECTLY FROM THE JWT CLASSWORK, DONT KNOW IF WE NEED THE SINGLE JOB
-//THING -K
+
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -46,13 +45,10 @@ function App() {
             <Routes>
               <Route path="/" element={<LoginPage/>}/>
               <Route path="/Signup" element={<Signup/>}/>
-              {/* <Route path="/MyProfile" element={<Profile/>}/> */}
               <Route path="/EditProfile" element={<EditProfile/>}/>
               <Route path="/CreateJob" element={<CreateJob/>}/>
               <Route path="/JobFeed" element={<JobFeed/>}/>
               <Route path="/MyProfile/:username" element={<Profile />}/>
-              <Route path="/Job/:JobId" // element={<SingleJob />} 
-              />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </div>

@@ -7,7 +7,6 @@ import Auth from '../../context/authContext';
 export default function Profile() {
    
     const [usernamed, setUsername] = useState('');
-    // const [user, setUser] = useState('');
     useEffect(() => {
       let useri = Auth.getProfile()
       console.log(useri)
@@ -16,18 +15,12 @@ export default function Profile() {
       }
     });
     const { data, loading, error } = useQuery(QUERY_USER, {variables: {username: usernamed}});
-//   let user;
     console.log(data)
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :</p>;
     if (data) {
-        // var user = data.user;
         console.log(data.user)
-        console.log("see me?")
-        
-    // return user
-    
-  }
+    }
  
   
     return (
@@ -55,14 +48,10 @@ export default function Profile() {
                                     <p className="mb-4 font-light leading-relaxed text-gray-600 dark:text-gray-400 skillz">
                                     {!data.location ? (<div>No location Added</div>) :(data.location)}
                                         </p>
-                                    {/* <!-- /typography/_h3.antlers.html --> */}
-                                    <div className="font-bold tracking-wide text-gray-600 dark:text-gray-300 font-mono text-xl loc-title"></div>
-                                    {/* <!-- End: /typography/_h3.antlers.html --> */}
+                                    <div className="font-bold tracking-wide text-gray-600 dark:text-gray-300 font-mono text-xl loc-title"></div>  
                                 </div>
-                               
                             </div>
                             <>
-                        
                                 <>
                                 <div className="pt-6 mx-6 mt-6 text-center border-t border-gray-200 dark:border-gray-700/50">
                                     <div className="flex flex-wrap justify-center">
@@ -108,10 +97,7 @@ export default function Profile() {
                      
                             </>
                         </div>
-
                     </div>
-                
-
                 </div>
                 ) : null}
         </div>

@@ -14,17 +14,17 @@ type User {
 
 type Query {
     findOneUser(username:String!): User
-    helpPost(_id: ID): HelpPost
+    helpPost: [HelpPost]
    
 }
 
 type HelpPost {
     _id: ID
-    title: String
-    languages: String
-    timeline: String
-    description: String
-    contact: String
+    title: String!
+    languages: String!
+    timeline: String!
+    description: String!
+    contact: String!
 }
 
 type Auth {
@@ -37,7 +37,7 @@ type Auth {
 type Mutation {
     registerUser(firstName: String!, lastName: String!, username: String!, password: String!): Auth
     loginUser(username: String!, password: String!): Auth
-    createHelpPost(title: String!, languages: String!, timeline: String, description: String!, contact: String!): HelpPost
+    createHelpPost(title: String!, languages: String!, timeline: String!, description: String!, contact: String!): HelpPost
     editUser(username: String!, location: String!, jobTitle: String!, skills: String!, contact: String!): User
 }
 `;

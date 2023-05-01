@@ -1,10 +1,9 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Home', href: '/', current: false },
-  // { name: 'Profile', href: '/myProfile/:username', current: false },
+  { name: 'Home', href: '/JobFeed', current: false },
   { name: 'Create Job', href: '/CreateJob', current: false },
   { name: 'Job Feed', href: '/JobFeed', current: false },
 ]

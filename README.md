@@ -1,18 +1,20 @@
-# solodolomolocolorolotolo
+# OnlyDevs
 
-its currently 2:38 am..
-my mind has been deep fried in the depths of hell
-what is life
-am i alive
-what is real
+## Description
 
-all heil joe rogan
-lil baby my favorite rapper fr
-who listens to fucking Nickelback bro
-also who tf let Da Baby become famous, mfs head is built like a 2010 Chrysler PT Cruiser
+The one spot to meet other developers, connect over languages and build a supportive community. With the functionality for people to look for work depending on preferred style (eCommerce, services, etc.), create work opportunities as well as an area for developers to connect and chat.
 
-![image](https://user-images.githubusercontent.com/116224156/234195545-89f8bcc1-de79-4e6e-80bd-1585afaf39d7.png)
+Built in React, utilizes MongoDB && GraphQL and Tailwind CSS
 
-"LETSSS GO"
+## Future development
 
-bro.. let's not.
+Check back to see what we add to this collaborative project!
+
+## Extra tidbits
+
+Team project crafted with blood, sweat and tears but resulted in a full stack build of awesomeness. 
+
+Good work team -K
+
+
+## Link to deployed Site
