@@ -4,8 +4,7 @@ import { useMutation } from '@apollo/client';
 import Auth from '../../context/authContext';
 import { HELP_POST } from '../../utils/mutations';
 
-//NOTE FROM KELSEI, SHOULD THIS ON CLICK EVENT REDIRECT TO ANOTHER PAGE? OR LET USER KNOW, HEY WE GOT YOUR
-//INFO?
+
 export default function CreateJob() {
     
     const [formState, setFormState] = useState({ title: '', languages: '', timeline: '', description:'', contact: '' });
@@ -75,6 +74,7 @@ export default function CreateJob() {
                                 name="languages"
                                 id="languages"
                                 placeholder="AlpineJS, React, GraphQL"
+                                value={formState.languages}
                                 className="w-full rounded-md border shadow-md border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#2093e5] focus:shadow-md"
                                 onChange={handleChange}
                             />
@@ -91,6 +91,7 @@ export default function CreateJob() {
                                 name="dates"
                                 id="dates"
                                 placeholder="Enter project dates"
+                                value={formState.dates}
                                 className="w-full rounded-md border shadow-md border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#2093e5] focus:shadow-md"
                                 onChange={handleChange}
                             />
@@ -107,6 +108,7 @@ export default function CreateJob() {
                                 name="description"
                                 id="description"
                                 placeholder="Enter in project details."
+                                value={formState.description}
                                 className="w-full resize-none shadow-md rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#2093e5] focus:shadow-md"
                                 onChange={handleChange}
                             ></textarea>
@@ -123,6 +125,7 @@ export default function CreateJob() {
                                 name="contact"
                                 id="contact"
                                 placeholder="Who should applicants contact?"
+                                value={formState.contact}
                                 className="w-full rounded-md border shadow-md border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#2093e5] focus:shadow-md"
                                 onChange={handleChange}
                             />

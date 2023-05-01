@@ -38,17 +38,14 @@ mutation Mutation($username: String!, $location: String!, $jobTitle: String!, $s
 `;
 
 export const HELP_POST = gql`
-mutation createHelpPost($title: String!, $languages: String!, $dates: String!, $description: String!, $contact: String!) {
-  createHelpPost(title: $title, languages: $languages, dates: $dates, description: $description, contact: $contact) {
-    token
-    HelpPost {
+mutation createHelpPost($title: String!, $languages: String!, $timeline: String!, $description: String!, $contact: String!) {
+  createHelpPost(title: $title, languages: $languages, timeline: $timeline, description: $description, contact: $contact) {
       _id
       title
       languages
       timeline
       description
       contact
-    }
   }
 }
 `;

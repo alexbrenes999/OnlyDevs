@@ -13,4 +13,16 @@ export const QUERY_USER = gql`
   }
 }
 `;
+export const FIND_HELPPOST =gql`
+query Query {
+  helpPost {
+    title
+    timeline
+    languages
+    description
+    contact
+  }
+}
+`
+
 

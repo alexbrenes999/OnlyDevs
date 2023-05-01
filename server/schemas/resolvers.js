@@ -10,11 +10,12 @@ const resolvers = {
       findOneUser: async (parent, { username }) => {
         return User.findOne({ username })
       },
-        helpPost : async (parent, args, context) => {
-          if (context.helpPost) {
-            const helpPost = await HelpPost.findById(context.helpPost._id);
+        helpPost : async ( ) => {
+          
+            const helpPost = await HelpPost.find({});
+            
             return helpPost;
-          }
+          
         },
     },
     
@@ -43,8 +44,8 @@ const resolvers = {
       
             return { token, user };
         },
-        createHelpPost: async (parent, args) => {
-          return await HelpPost.create(args);
+        createHelpPost: async (parent, {title, languages, timeline, description, contact}) => {
+          return await HelpPost.create({title: title, languages: languages, timeline: timeline, description: description, contact: contact });
         },
         editUser: async (_, { username, location, jobTitle, skills, contact }) => {
           try {
