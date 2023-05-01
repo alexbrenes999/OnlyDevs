@@ -6,12 +6,16 @@ type User {
     firstName: String
     lastName: String
     username: String
-    profile: Profile
+    location: String
+    jobTitle: String
+    skills: String
+    contact: String
 }
 
 type Query {
-    user: User
+    findOneUser(_id: ID!): User
     helpPost(_id: ID): HelpPost
+   
 }
 
 type HelpPost {
@@ -28,18 +32,13 @@ type Auth {
     user: User
 }
 
-type Profile{
-    location: String
-    jobTitle: String
-    skills: String
-    contact: String
-}
+
 
 type Mutation {
     registerUser(firstName: String!, lastName: String!, username: String!, password: String!): Auth
     loginUser(username: String!, password: String!): Auth
     createHelpPost(title: String!, languages: String!, timeline: String, description: String!, contact: String!): HelpPost
-    editProfile(username: String!, location: String!, jobTitle: String!, skills: String!, contact: String!): Profile
+    editUser(username: String!, location: String!, jobTitle: String!, skills: String!, contact: String!): User
 }
 `;
 

@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/onlydevsdb');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://alexbrenes:Tyra6310@onlydevs.riluyn8.mongodb.net/onlydevsdb?retryWrites=true&w=majority');
 
 export default mongoose.connection;

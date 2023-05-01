@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import Auth from '../../context/authContext';
 import { LOGIN_USER } from '../../utils/mutations';
+import {Link} from 'react-router-dom';
 
 function Login(props) {
 
     const [formState, setFormState] = useState({ username: '', password: '' });
-    const [loginUser, { error }] = useMutation(LOGIN_USER);
+    const [loginUser, { error, mutationResponse }] = useMutation(LOGIN_USER);
     const username = formState.username
 
     const handleFormSubmit = async (event) => {
-        event.preventDefault();
         
+        event.preventDefault();
+     
+        console.log(formState)
         try {
             const mutationResponse = await loginUser({
                 variables: {
@@ -21,9 +24,10 @@ function Login(props) {
             });
             const token = mutationResponse.data.loginUser.token;
             Auth.login(token);
-            
-            window.location.assign(`/MyProfile/${username}`)
+         
+            // window.location.assign(`/MyProfile/${username}`)
         } catch (e) {
+           
             console.log(e);
         }
     };
@@ -38,7 +42,13 @@ function Login(props) {
 
     return (
         <div className='bg-slate-200'>
-            <form onSubmit={handleFormSubmit} className="flex flex-col text-sm rounded-md">
+            {mutationResponse ? (
+                <p>Logged in! Heading to 
+                    <Link to={`/myProfile/${username}`}>your profile</Link>
+
+                </p>
+            ): (
+                <form onSubmit={handleFormSubmit} className="flex flex-col text-sm rounded-md">
                 <div className="flex items-center justify-center h-screen shadow-xl">
                     <div className="sm:w-8/12 md:w-6/12 lg:w-4/12 w-10/12 flex-col border bg-white px-6 py-10 shadow-xl rounded-[4px]">
                         <div className="mb-8 flex justify-center">
@@ -50,11 +60,13 @@ function Login(props) {
                                 type="text"
                                 placeholder="Username"
                                 name="username"
+                                value={formState.username}
                                 onChange={handleChange} />
                             <input className="w-full border rounded-[4px] p-3 hover:outline-none focus:outline-none hover:border-[#6c97ed]"
                                 type="password"
                                 placeholder="Password"
                                 name="password"
+                                value={formState.password}
                                 onChange={handleChange} />
                         </div>
 
@@ -80,6 +92,11 @@ function Login(props) {
                     </div>
                 </div>
             </form>
+            )}
+            {error && (
+                <div> {error.message}
+                    </div>
+            )}
         </div>
     )
 }

@@ -1,17 +1,16 @@
 import { AuthenticationError } from 'apollo-server-express';
 import User from '../models/User.js';
 import HelpPost from '../models/HelpPost.js';
-import Profile from '../models/Profile.js';
+
 
 import { authStuff } from '../utils/auth.js';
 
 const resolvers = {
     Query: {
-        user: async (parent, args, context) => {
-            if (context.user) {
-              const user = await User.findById(context.user._id);
+        findOneUser: async (parent, {userid}) => {
+          console.log({userid})
+              const user = await User.findOne({userid});
               return user;
-            }
       
         },
         helpPost : async (parent, args, context) => {
@@ -23,9 +22,11 @@ const resolvers = {
     },
     
     Mutation: {
-        registerUser: async (parent, args) => {
-            const user = await User.create(args);
+        registerUser: async (parent, {firstName, lastName, username, password}) => {
+            const user = await User.create({firstName: firstName, lastName: lastName, username: username, password: password});
             const token = authStuff.signToken(user);
+            console.log(token);
+            console.log(user);
             return { token, user };
         },
         loginUser: async (parent, { username, password }) => {
@@ -48,14 +49,12 @@ const resolvers = {
         createHelpPost: async (parent, args) => {
           return await HelpPost.create(args);
         },
-        editProfile: async (parent, { profiles }, context) => {
-            console.log(context);
-            if (context.user) {
-              const profile = new Profile({ profiles });
-              await User.findByIdAndUpdate(context.user._id, { $push: { profile: profile } });
+        editUser: async (parent, { username, location, jobTitle, skills, contact } ) => {
+           console.log(username)
+              const profile = await User.findOneAndUpdate({username: username}, 
+                { $push: { location: location, jobTitle: jobTitle, skills: skills, contact: contact } });
               return profile;
-            }
-            throw new AuthenticationError('Not logged in');
+            
         }
        
     }

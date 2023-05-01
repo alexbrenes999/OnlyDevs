@@ -4,22 +4,27 @@ import Auth from '../../context/authContext';
 import { REGISTER_USER } from '../../utils/mutations';
 
 function Signup(props) {
-    const [formState, setFormState] = useState({ username: '', password: '' });
-    const [registerUser] = useMutation(REGISTER_USER);
+    const [formState, setFormState] = useState({ username: '', password: '', firstName: '', lastName: ''});
+    const [registerUser, {e, mutationResponse}] = useMutation(REGISTER_USER);
   
     const handleFormSubmit = async (event) => {
+        console.log(formState)
       event.preventDefault();
-      const mutationResponse = await registerUser({
-        variables: {
-          username: formState.username,
-          password: formState.password,
-          firstName: formState.firstName,
-          lastName: formState.lastName,
-        },
-      });
-      const token = mutationResponse.data.registerUser.token;
-      Auth.login(token);
+      try{
+        const mutationResponse = await registerUser({
+            variables: { ...formState },
+          });
+          const token = mutationResponse.data.registerUser.token;
+          Auth.login(token);
+        
+      } catch (e){
+      
+        console.log(e);
+      }
+      
     };
+
+      
   
     const handleChange = (event) => {
       const { name, value } = event.target;
@@ -42,26 +47,26 @@ function Signup(props) {
                     <form onSubmit={handleFormSubmit} className="flex flex-col text-sm rounded-md">
 
                         <div className='w-auto pb-4'>
-                            <input className=" w-full border rounded-[4px] p-3 hover:outline-none focus:outline-none hover:border-[#6c97ed]" name="firstName" type="text" placeholder="First Name" onChange={handleChange}/>
+                            <input className=" w-full border rounded-[4px] p-3 hover:outline-none focus:outline-none hover:border-[#6c97ed]" name="firstName" type="text" value={formState.firstName} placeholder="First Name" onChange={handleChange}/>
                         </div>
 
                         <div className='w-auto pb-4'>
-                            <input className="w-full border rounded-[4px] p-3 hover:outline-none focus:outline-none hover:border-[#6c97ed]" name="lastName" type="text" placeholder="Last Name" onChange={handleChange}/>
+                            <input className="w-full border rounded-[4px] p-3 hover:outline-none focus:outline-none hover:border-[#6c97ed]" name="lastName" type="text" value={formState.lastName} placeholder="Last Name" onChange={handleChange}/>
                         </div>
 
                         <div className='w-auto pb-4'>
-                            <input className="w-full rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-[#6c97ed]" name="username" type="text" placeholder="Username" onChange={handleChange}/>
+                            <input className="w-full rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-[#6c97ed]" name="username" type="text" value={formState.username} placeholder="Username" onChange={handleChange}/>
                         </div>
 
                         <div className="w-auto ">
-                            <input className="w-full border rounded-[4px] p-3 hover:outline-none focus:outline-none hover:border-[#6c97ed]" name="password" type="password" placeholder="Password" onChange={handleChange}/>
+                            <input className="w-full border rounded-[4px] p-3 hover:outline-none focus:outline-none hover:border-[#6c97ed]" name="password" type="password" value={formState.password} placeholder="Password" onChange={handleChange}/>
                         </div>
 
                         <div className="mt-1 flex justify-end text-xs text-[#083BA2] hover:text-[#6c97ed]">
                             <a href="/">Already have an account? Login!</a>
                         </div>
                         <div className='flex justify-center pt-4'>
-                            <button className="mt-5  w-6/12 border p-2 bg-gradient-to-r from-gray-800 bg-gray-500 text-white rounded-[4px] hover:bg-slate-400 scale-105 duration-300" type="submit"><a href="/EditProfile">Signup!</a></button>
+                            <button className="mt-5  w-6/12 border p-2 bg-gradient-to-r from-gray-800 bg-gray-500 text-white rounded-[4px] hover:bg-slate-400 scale-105 duration-300" type="submit">Signup!</button>
                         </div>
                         
                     </form>
