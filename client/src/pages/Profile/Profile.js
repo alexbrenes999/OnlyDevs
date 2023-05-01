@@ -1,7 +1,16 @@
 import Navigation from '../Navbar/Navbar';
+import { useQuery } from '@apollo/client';
+import { QUERY_USER } from '../../utils/queries';
 
 
 export default function Profile() {
+
+    const { data } = useQuery(QUERY_USER);
+    let user;
+    if (data) {
+        user = data.user;
+    }
+
     return (
         <div className='bg-slate-200'>
             <Navigation />
@@ -19,7 +28,7 @@ export default function Profile() {
                         </div>
 
                         <div className=" mt-20 text-center ">
-                            <h3 className="mb-1 text-2xl font-bold leading-normal text-gray-700 dark:text-gray-300 fullName">My Name</h3>
+                            <h3 className="mb-1 text-2xl font-bold leading-normal text-gray-700 dark:text-gray-300"> {user.firstName} {user.lastName} </h3>
                             <div className="flex flex-row justify-center w-full mx-auto space-x-2 text-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
