@@ -1,19 +1,39 @@
 import Navigation from '../Navbar/Navbar';
 import { useQuery } from '@apollo/client';
+import { useEffect, useState } from 'react';
 import { QUERY_USER } from '../../utils/queries';
+import Auth from '../../context/authContext';
 
 export default function Profile() {
-    const { data } = useQuery(QUERY_USER);
-  let user;
-
-  if (data) {
-    user = data.user;
+   
+    const [usernamed, setUsername] = useState('');
+    // const [user, setUser] = useState('');
+    useEffect(() => {
+      let useri = Auth.getProfile()
+      console.log(useri)
+      if (useri){
+        setUsername(useri.data.username);
+      }
+    });
+    const { data, loading, error } = useQuery(QUERY_USER, {variables: {username: usernamed}});
+//   let user;
     console.log(data)
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error :</p>;
+    if (data) {
+        // var user = data.user;
+        console.log(data.user)
+        console.log("see me?")
+        
+    // return user
+    
   }
+ 
+  
     return (
         <div className='bg-slate-200'>
             <Navigation />
-                {user ? (
+                {data ? (
                     
                    <div className='flex items-center justify-center min-h-screen p-2 bg-slate-200'>
                     <div className="relative w-full group max-w-md min-w-0 mx-auto mt-16 mb-6 break-words bg-white border shadow-2xl dark:bg-gray-800 dark:border-gray-700 md:max-w-xl rounded-xl">
@@ -27,51 +47,50 @@ export default function Profile() {
                             </div>
                         
                             <div className=" mt-20 text-center ">
-                                <h3 className="mb-1 text-2xl font-bold leading-normal text-gray-700 dark:text-gray-300 fullName">{user.firstName} {user.lastName}</h3>
-                                {user.profile.map((profile) => (
+                                <h3 className="mb-1 text-2xl font-bold leading-normal text-gray-700 dark:text-gray-300 fullName">{data.firstName} {data.lastName}</h3>
                                 <div className="flex flex-row justify-center w-full mx-auto space-x-2 text-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
                                     </svg>
                                     <p className="mb-4 font-light leading-relaxed text-gray-600 dark:text-gray-400 skillz">
-                                        {profile.location}
+                                    {!data.location ? (<div>No location Added</div>) :(data.location)}
                                         </p>
                                     {/* <!-- /typography/_h3.antlers.html --> */}
                                     <div className="font-bold tracking-wide text-gray-600 dark:text-gray-300 font-mono text-xl loc-title"></div>
                                     {/* <!-- End: /typography/_h3.antlers.html --> */}
                                 </div>
-                                ))}
+                               
                             </div>
                             <>
-                            {user.profile.map((profile) => (
+                        
                                 <>
                                 <div className="pt-6 mx-6 mt-6 text-center border-t border-gray-200 dark:border-gray-700/50">
                                     <div className="flex flex-wrap justify-center">
                                         <div className="w-full px-6">
                                             <h3 className="mb-1 text-2xl font-bold leading-normal text-gray-700 dark:text-gray-300">Qualifications</h3>
                                             <p className="mb-4 font-light leading-relaxed text-gray-600 dark:text-gray-400 skills">
-                                            {profile.skills}
+                                            {!data.skills ? (<div>No Skills Added</div>) :(data.skills)}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* <div className="pt-6 mx-6 mt-6 text-center border-t border-gray-200 dark:border-gray-700/50">
+                                <div className="pt-6 mx-6 mt-6 text-center border-t border-gray-200 dark:border-gray-700/50">
                                     <div className="flex flex-wrap justify-center">
                                         <div className="w-full px-6">
-                                            <h3 className="mb-1 text-2xl font-bold leading-normal text-gray-700 dark:text-gray-300 ">Publications</h3>
+                                            <h3 className="mb-1 text-2xl font-bold leading-normal text-gray-700 dark:text-gray-300 ">JobTitle</h3>
                                             <p className="mb-4 font-light leading-relaxed text-gray-600 dark:text-gray-400 publications">
-                                                    This needs to be dynamically rendered here
+                                            {!data.jobTitle ? (<div>No Job Added</div>) :(data.jobTitle)}
                                             </p>
                                         </div>
                                     </div>
-                                </div> */}
+                                </div>
 
                                 <div className="pt-6 mx-6 mt-6 text-center border-t border-gray-200 dark:border-gray-700/50">
                                     <div className="w-full px-6">
                                         <h3 className="mb-1 text-2xl font-bold leading-normal text-gray-700 dark:text-gray-300">Contact</h3>
                                         <p className="mb-4 font-light leading-relaxed text-gray-600 dark:text-gray-400 contact">
-                                            {profile.contact}
+                                        {!data.contact ? (<div>No Contact Added</div>) :(data.contact)}
                                         </p>
                                     </div>
                                 </div>
@@ -86,7 +105,7 @@ export default function Profile() {
                                     </div>
                                 </div>
                              </>
-                            ))}
+                     
                             </>
                         </div>
 

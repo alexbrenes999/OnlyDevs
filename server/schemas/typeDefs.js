@@ -13,7 +13,7 @@ type User {
 }
 
 type Query {
-    findOneUser(_id: ID!): User
+    findOneUser(username:String!): User
     helpPost(_id: ID): HelpPost
    
 }

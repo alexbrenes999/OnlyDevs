@@ -1,17 +1,16 @@
 import { gql } from '@apollo/react-hooks';
 
 export const QUERY_USER = gql`
-{
-  user {
-    _id
+ query Query($username: String!) {
+  findOneUser(username: $username) {
+    contact
     firstName
     lastName
-    username
-    location
     jobTitle
+    location
     skills
-    contact
+    username
   }
 }
-
 `;
+

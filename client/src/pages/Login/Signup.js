@@ -23,7 +23,6 @@ function Signup(props) {
       }
       
     };
-
       
   
     const handleChange = (event) => {
