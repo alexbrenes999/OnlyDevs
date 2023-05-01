@@ -24,7 +24,7 @@ export default function Profile() {
                                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
                                 </svg>
-                                <p className="mb-4 font-light leading-relaxed text-gray-600 dark:text-gray-400 skillz">
+                                <p name='skillz' className="mb-4 font-light leading-relaxed text-gray-600 dark:text-gray-400">
                                     Florida, USA This needs to be dynamically rendered here
                                     </p>
                                 {/* <!-- /typography/_h3.antlers.html --> */}
