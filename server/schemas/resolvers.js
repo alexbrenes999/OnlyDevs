@@ -45,6 +45,12 @@ const resolvers = {
         },
         createHelpPost: async (parent, args) => {
           return await HelpPost.create(args);
+        },
+        editProfile: async (parent, args) => {
+            if (context.user) {
+              const user = await User.findById(context.user._id);
+              return user;
+            }
         }
     }
 };

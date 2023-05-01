@@ -2,7 +2,7 @@ import Navigation from '../Navbar/Navbar';
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import Auth from '../../context/authContext';
-import { CREATE_JOB } from '../../utils/mutations';
+import { HELP_POST } from '../../utils/mutations';
 
 //NOTE FROM KELSEI, SHOULD THIS ON CLICK EVENT REDIRECT TO ANOTHER PAGE? OR LET USER KNOW, HEY WE GOT YOUR
 //INFO?
@@ -11,20 +11,20 @@ export default function CreateJob() {
     //COPIED THIS DIRECTLY FROM THE SIGNUP FORM
     //ALEX DO YOUR THING HONEY -K
     const [formState, setFormState] = useState({ username: '', password: '' });
-    const [CreateJob] = useMutation(CREATE_JOB);
+    const [helpPost] = useMutation(HELP_POST);
   
     const handleFormSubmit = async (event) => {
       event.preventDefault();
-      const mutationResponse = await CreateJob({
+      const mutationResponse = await helpPost({
         variables: {
           title: formState.title,
           languages: formState.languages,
-          dates: formState.dates,
+          timeline: formState.dates,
           description: formState.description,
           contact: formState.contact,
         },
       });
-      const token = mutationResponse.data.CreateJob.token;
+      const token = mutationResponse.data.helpPost.token;
       Auth.login(token);
     };
   

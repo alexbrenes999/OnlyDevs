@@ -27,10 +27,20 @@ type Auth {
     user: User
 }
 
+type Profile{
+    token: ID
+    user: User
+    location: String
+    jobTitle: String
+    skills: String
+    contact: String
+}
+
 type Mutation {
     registerUser(firstName: String!, lastName: String!, username: String!, password: String!): Auth
     loginUser(username: String!, password: String!): Auth
     createHelpPost(title: String!, languages: String!, timeline: String, description: String!, contact: String!): HelpPost
+    editProfile(username: String!, location: String!, jobTitle: String!, skills: String!, contact: String!): Profile
 }
 `;
 
