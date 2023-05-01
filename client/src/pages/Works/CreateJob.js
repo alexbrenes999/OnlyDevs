@@ -36,11 +36,8 @@ export default function CreateJob() {
     return (
         <div className='bg-slate-200'>
             <Navigation />
-            {/* <!-- component --> */}
-            <div className="flex  justify-center p-12 bg-slate-100">
-                {/* <!-- Author: FormBold Team -->
-            <!-- Learn More: https://formbold.com --> */} 
-                <div className="mx-auto w-full shadow-lg max-w-[650px] bg-[#D5E1EA] px-10 rounded-sm py-4">
+                    <div className="flex  justify-center p-12 bg-slate-100">
+                                <div className="mx-auto w-full shadow-lg max-w-[650px] bg-[#D5E1EA] px-10 rounded-sm py-4">
                     <div className='border-b-4 border-[#9196ac]  my-4'>
                         <p className='text-center text-2xl font-semibold pb-3'>Create a job!</p>
                     </div>

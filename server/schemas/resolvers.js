@@ -65,6 +65,4 @@ const resolvers = {
     }
 };
 
-//How would i make a resolver for a blog post?
-
 export default resolvers;

@@ -55,10 +55,7 @@ export default function EditProfile() {
     return (
         <div className='bg-slate-200'>
             <Navigation />
-            {/* <!-- component --> */}
             <div className="flex  justify-center p-12  bg-slate-100">
-                {/* <!-- Author: FormBold Team -->
-            <!-- Learn More: https://formbold.com --> */} 
                 <div className="mx-auto w-full max-w-[650px] shadow-md bg-[#D5E1EA] px-10 rounded-sm py-4">
                     <div className='border-b-4 border-[#9196ac]  my-4'>
                         <p className='text-center text-2xl font-semibold pb-3'>Edit your profile!</p>
@@ -141,7 +138,6 @@ export default function EditProfile() {
                             </button>
                         </div>
                         <div className='border-b-4 border-[#9196ac] mt-8'>
-                            {/* THIS HOLDS THE BORDER LINE -K */}
                         </div>
                     </form>
                 </div>

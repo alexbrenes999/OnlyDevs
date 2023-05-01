@@ -31,10 +31,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-// mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true})
-//     .then(() => server.listen(PORT, () => console.log(`Server running on port: http://localhost:${PORT}`)))
-//     .catch((err) => console.log(err));
-
     const startApolloServer = async (typeDefs, resolvers) => {
         await server.start();
         server.applyMiddleware({ app });
