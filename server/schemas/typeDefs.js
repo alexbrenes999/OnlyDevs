@@ -6,6 +6,7 @@ type User {
     firstName: String
     lastName: String
     username: String
+    profile: Profile
 }
 
 type Query {
@@ -28,8 +29,6 @@ type Auth {
 }
 
 type Profile{
-    token: ID
-    user: User
     location: String
     jobTitle: String
     skills: String
