@@ -74,6 +74,7 @@ export default function EditProfile() {
                                 name="jobTitle"
                                 id="jobTitle"
                                 placeholder="UX/UI Designer"
+                                value={formState.jobTitle}
                                 className="w-full rounded-md border shadow-md border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                                 onChange={handleChange}
                             />

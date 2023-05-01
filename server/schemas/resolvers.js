@@ -7,12 +7,9 @@ import { authStuff } from '../utils/auth.js';
 
 const resolvers = {
     Query: {
-        findOneUser: async (parent, {userid}) => {
-          console.log({userid})
-              const user = await User.findOne({userid});
-              return user;
-      
-        },
+      findOneUser: async (parent, { username }) => {
+        return User.findOne({ username })
+      },
         helpPost : async (parent, args, context) => {
           if (context.helpPost) {
             const helpPost = await HelpPost.findById(context.helpPost._id);
